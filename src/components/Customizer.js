@@ -1,11 +1,20 @@
 import React from 'react';
+import '../style/Customizer.css';
 
 const customizer = () =>{
   return (
     <div className='customizer'>
-    <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porta convallis ex id viverra. Mauris pharetra ante ut lectus pellentesque, a facilisis libero ultricies. Donec imperdiet tellus et ipsum dignissim volutpat. Aliquam quis tortor rhoncus, fermentum urna non, efficitur nunc. Nulla sodales, justo ut tempor pretium, sem augue molestie sapien, blandit pellentesque ligula magna eget libero. Fusce non odio justo. Suspendisse potenti.
-    </p>
+      <div className='customizer-content'>
+        <div> <h1>Custom Colors: </h1> </div>
+        <div className='customizer-colors'>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+          <div className='customizer-color'>custom <div className='color'></div></div>
+        </div>
+      </div>
     </div>
   )
 }

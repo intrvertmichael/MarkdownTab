@@ -1,24 +1,15 @@
 import React from 'react';
+import '../style/Display.css';
 
 const display = () =>{
   return (
-    <div className='display'>
+    <div className='display full-screen'>
       <div className='display-content'>
-        <button className='display-btn' onClick={growShrink}> ... </button>
         <h1> Markdown Display Pannel </h1>
-        <p> test </p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porta convallis ex id viverra. Mauris pharetra ante ut lectus pellentesque, a facilisis libero ultricies. Donec imperdiet tellus et ipsum dignissim volutpat. Aliquam quis tortor rhoncus, fermentum urna non, efficitur nunc. Nulla sodales, justo ut tempor pretium, sem augue molestie sapien, blandit pellentesque ligula magna eget libero. Fusce non odio justo. Suspendisse potenti. </p>
       </div>
     </div>
 )
-}
-
-const growShrink = () =>{
-  const display = document.querySelector('.display');
-  display.classList.toggle("full-screen");
-  const md = document.querySelector('.md');
-  md.classList.toggle("slide-left");
-  const customizer = document.querySelector('.customizer');
-  customizer.classList.toggle("slide-up");
 }
 
 export default display;
