@@ -1,9 +1,9 @@
 
 .md {
+  height: calc(100% - 100px);
+  width: 500px;
   padding:0px 5px 30px 50px;
-  width: 30%;
   transition: left 0.7s ease;
-  height: 85%;
   position: absolute;
   bottom: 0px;
   left:50%;
@@ -24,4 +24,5 @@
   line-height: 20px;
   box-sizing: border-box;
   resize: none;
+  outline: none;
 }

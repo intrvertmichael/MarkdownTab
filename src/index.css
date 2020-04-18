@@ -2,4 +2,22 @@ html, body {
   margin: 0px;
   padding: 0px;
   font-family: helvetica, arial, sans-serif;
+  background: rgb(10, 10, 10);
+}
+
+h1, h2, h3, h4, h5 {
+  color:var(--title-color);
+}
+
+:root {
+  --bg-color: #00060f;
+  --text-color: #deeaff;
+  --title-color: #31759a;
+  --quotes-color: #555555;
+  --highlights-color: #90b876;
+
+  --text-size: 16px;
+  --height-size: 30px;
+
+  --animation-duration: 0.7s;
 }
