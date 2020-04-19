@@ -5,12 +5,16 @@ html, body {
   background: rgb(10, 10, 10);
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   color:var(--title-color);
 }
 
+a {
+  color: var(--highlights-color);
+}
+
 :root {
-  --bg-color: #00060f;
+  --background-color: #00060f;
   --text-color: #deeaff;
   --title-color: #31759a;
   --quotes-color: #555555;

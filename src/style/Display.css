@@ -11,7 +11,7 @@
   bottom: 0px;
   right: 0px;
 
-  background: var(--bg-color);
+  background: var(--background-color);
   color: var(--text-color);
   box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 1);
   overflow: scroll;
@@ -35,4 +35,22 @@
 
 h1 {
   text-align: center;
+}
+
+
+.contains-task-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.task-list-item{
+  padding: 20px 0px;
+}
+
+.task-list-item-checkbox:checked {
+  display: none;
+}
+.task-list-item-checkbox:enabled{
+  display: none;
 }

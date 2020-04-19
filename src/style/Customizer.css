@@ -2,7 +2,7 @@
 .customizer {
   width: 100%;
   height:100px;
-  color: rgb(120, 120, 120);
+  color: rgb(150, 150, 150);
   font-size: 16px;
 
   position: absolute;
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   padding: 15px;
-  color: rgb(200, 200, 200);
+  color: rgb(230, 230, 230);
 }
 
 .customizer-color {
@@ -47,10 +47,6 @@
   display: flex;
   align-items: center;
   padding: 15px;
-}
-
-.customizer-color:hover {
-  color: white;
 }
 
 .color {
@@ -71,10 +67,20 @@
 }
 
 
-.background {background: var(--bg-color)}
+.background {background: var(--background-color)}
 .text {background: var(--text-color)}
 .title {background: var(--title-color)}
 .quotes {background: var(--quotes-color)}
 .highlights {background: var(--highlights-color)}
 .reset {color:#391818; cursor: pointer;}
 .reset:hover{color:red; cursor: none;}
+
+
+
+.color-picker-container{
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 400px;
+  z-index: 100;
+}

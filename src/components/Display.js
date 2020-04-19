@@ -1,10 +1,14 @@
 import React from 'react';
 import MarkdownIt from 'markdown-it';
+import MarkdownItEmoji from 'markdown-it-emoji';
+import MarkdownItTasks from 'markdown-it-task-lists';
 
 import '../style/Display.css';
 
 const display = (props) =>{
-  const mdIt = new MarkdownIt({breaks:true, linkify:true});
+  const mdIt = new MarkdownIt({breaks:true, linkify:true, typographer:true});
+  mdIt.use(MarkdownItEmoji);
+  mdIt.use(MarkdownItTasks);
   const result = mdIt.render(props.text);
 
   return (
