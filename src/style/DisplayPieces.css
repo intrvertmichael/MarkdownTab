@@ -1,6 +1,6 @@
 
 
-/* headers */
+
 .display h1, .display h2, .display h3, .display h4, .display h5, .display h6 {
   color:var(--title-color);
 }
@@ -9,9 +9,6 @@
   text-align: center;
 }
 
-
-
-/* links */
 .display a {
   color: var(--highlights-color);
   text-decoration: none;
@@ -23,9 +20,75 @@
   padding-bottom: 5px;
 }
 
+.display strong {
+  font-size: 1.25em;
+  opacity: 0.5;
+}
+
+.display s{
+  opacity: 0.5;
+}
+
+.display blockquote {
+  background: rgba(0,0,0,0.15);
+  padding: 20px 0px 0px 30px;
+  margin: 0px;
+  border: 1px solid var(--text-color);
+}
+
+.display code {
+  font-family: courier;
+  color:#ddff00;
+}
+
+.display p code {
+  padding: 5px 10px;
+}
+
+.display pre code {
+  padding: 30px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  display: block;
+}
+
+.display ul, .display ol {
+  margin: 0px 0px 50px 0px;
+  padding: 0px;
+}
+
+.display li {
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.display img {
+  max-height: 200px;
+  display: inline-block;
+}
+
+.display table {
+  margin: 20px 0px;
+}
+
+.display table th {
+  padding: 20px;
+
+}
+
+.display table td {
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+}
+
+
+
+
+
 
 
 /* task list */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .contains-task-list {
   list-style-type: none;
   margin: 0px;
