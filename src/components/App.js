@@ -37,7 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porta convallis e
 
     return (
     <div className="container">
-      <div className='tooSmall'>This window is under 700px which is too small. This extension doesn't work well with such a small screen. Please make the window bigger.</div>
+      <div className='tooSmall'> Please make the window bigger. </div>
       <button className='display-btn' onClick={growShrink}>X</button>
 
       <Customizer />
