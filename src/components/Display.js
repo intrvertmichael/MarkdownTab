@@ -4,6 +4,7 @@ import MarkdownItEmoji from 'markdown-it-emoji';
 import MarkdownItTasks from 'markdown-it-task-lists';
 
 import '../style/Display.css';
+import '../style/DisplayPieces.css';
 
 const display = (props) =>{
   const mdIt = new MarkdownIt({breaks:true, linkify:true, typographer:true});

@@ -34,42 +34,6 @@
   line-height: var(--height-size);
 }
 
-.display h1, .display h2, .display h3, .display h4, .display h5, .display h6 {
-  color:var(--title-color);
-}
-
-.display h1 {
-  text-align: center;
-}
-
-.display a {
-  color: var(--highlights-color);
-  text-decoration: none;
-  cursor: none;
-}
-
-.display a:hover{
-  border-bottom: 1px dotted;
-  padding-bottom: 5px;
-}
-
-
-.contains-task-list {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.task-list-item{
-  padding: 20px 0px;
-}
-
-.task-list-item-checkbox:checked {
-  display: none;
-}
-.task-list-item-checkbox:enabled{
-  display: none;
-}
 
 @media only screen and (max-width: 1500px) {
   .display-content {

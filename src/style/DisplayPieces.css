@@ -1,0 +1,55 @@
+
+
+/* headers */
+.display h1, .display h2, .display h3, .display h4, .display h5, .display h6 {
+  color:var(--title-color);
+}
+
+.display h1 {
+  text-align: center;
+}
+
+
+
+/* links */
+.display a {
+  color: var(--highlights-color);
+  text-decoration: none;
+  cursor: none;
+}
+
+.display a:hover{
+  border-bottom: 1px dotted;
+  padding-bottom: 5px;
+}
+
+
+
+/* task list */
+.contains-task-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.task-list-item{
+}
+
+.task-list-item-checkbox {
+  margin-right: 10px;
+}
+
+.task-list-item-checkbox::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  opacity: 0.9;
+}
+
+.task-list-item-checkbox:checked::after {
+  opacity: 1;
+  border-radius: 50%;
+  background: var(--highlights-color);
+}
