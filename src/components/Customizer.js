@@ -63,7 +63,7 @@ const customizer = () =>{
 
       <div className='customizer-content'>
         <div className='customizer-colors'>
-          <div className='customizer-color-label'><a href='https://www.markdownguide.org/cheat-sheet/' target="_blank" rel="noopener noreferrer">Learn Markdown</a> </div>
+          <div className='customizer-color-label'><a href='https://www.markdownguide.org/basic-syntax/' target="_blank" rel="noopener noreferrer">Learn Markdown</a> </div>
 
           <div className='customizer-color'>Background <div className='color background' onClick={()=>colorClicked('background')}></div> </div>
           <div className='customizer-color'>Text <div className='color text' onClick={()=>colorClicked('text')}></div> </div>
