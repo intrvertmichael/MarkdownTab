@@ -1,5 +1,6 @@
 
 .display {
+  font-family: Roboto;
   height: calc(100% - 100px);
   width: calc(100% - 500px);
 
@@ -33,8 +34,23 @@
   line-height: var(--height-size);
 }
 
-h1 {
+.display h1, .display h2, .display h3, .display h4, .display h5, .display h6 {
+  color:var(--title-color);
+}
+
+.display h1 {
   text-align: center;
+}
+
+.display a {
+  color: var(--highlights-color);
+  text-decoration: none;
+  cursor: none;
+}
+
+.display a:hover{
+  border-bottom: 1px dotted;
+  padding-bottom: 5px;
 }
 
 
@@ -53,4 +69,38 @@ h1 {
 }
 .task-list-item-checkbox:enabled{
   display: none;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .display {
+    width: 50%;
+  }
+  .display-content {
+    width: 95%;
+  }
+  .full-screen {
+    right: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .display {
+    height: calc(100% - 150px);
+  }
+  .full-screen {
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .display{
+    display: none;
+  }
 }

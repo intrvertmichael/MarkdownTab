@@ -2,7 +2,7 @@
 .md {
   height: calc(100% - 100px);
   width: 500px;
-  padding:0px 5px 30px 50px;
+  padding:0px 5px 30px 30px;
   transition: left 0.7s ease;
   position: absolute;
   bottom: 0px;
@@ -16,13 +16,33 @@
 }
 
 .md-input {
+  font-family: courier;
   width: 100%;
   height: 100%;
   border-radius: 10px;
   padding: 20px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
   box-sizing: border-box;
   resize: none;
   outline: none;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .md {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .md {
+    height: calc(100% - 150px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .md{
+    display: none;
+  }
 }

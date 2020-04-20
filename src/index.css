@@ -5,22 +5,14 @@ html, body {
   background: rgb(10, 10, 10);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color:var(--title-color);
-}
-
-a {
-  color: var(--highlights-color);
-}
-
 :root {
-  --background-color: #00060f;
-  --text-color: #deeaff;
-  --title-color: #31759a;
+  --background-color: #000a15;
+  --text-color: #ffffff;
+  --title-color: #a0bd9a;
   --quotes-color: #555555;
-  --highlights-color: #90b876;
+  --highlights-color: #ddff00;
 
-  --text-size: 16px;
+  --text-size: 15px;
   --height-size: 30px;
 
   --animation-duration: 0.7s;

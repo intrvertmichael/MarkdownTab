@@ -26,3 +26,17 @@
   border: 3px solid white;
   cursor: none;
 }
+
+.tooSmall{
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .tooSmall{
+    display: block;
+    color: white;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 100px;
+  }
+}

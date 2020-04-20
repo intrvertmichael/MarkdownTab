@@ -11,15 +11,26 @@
   left: 0px;
   top:30%;
   opacity: 0;
-  transition: top 0.7s ease, opacity 0.7s ease-out;
+  /* transition: top 0.7s ease, opacity 0.7s ease; */
   /* border: 3px solid green; */
   display: flex;
   flex-direction: column;
 }
 
 .slide-up {
-  top: 0px;
   opacity: 1;
+  top: 0px;
+
+  animation-name: example;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+}
+
+@keyframes example {
+  0%   {opacity:0; top:30%;}
+  25%  {}
+  50%  {opacity: 0;}
+  100% {top: 0px;   opacity: 1;}
 }
 
 .customizer-content {
@@ -33,6 +44,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .customizer-color-label {
@@ -72,9 +84,15 @@
 .title {background: var(--title-color)}
 .quotes {background: var(--quotes-color)}
 .highlights {background: var(--highlights-color)}
-.reset {color:#391818; cursor: pointer;}
-.reset:hover{color:red; cursor: none;}
 
+.reset {
+  color: rgb(110, 50, 50);
+  cursor: pointer;
+}
+.reset:hover{
+  color: rgb(198, 103, 103);
+  cursor: none;
+}
 
 
 .color-picker-container{
@@ -83,4 +101,58 @@
   top: 10px;
   left: 400px;
   z-index: 100;
+}
+
+
+.customizer a {
+  color: rgb(198, 103, 103);
+  text-decoration: none;
+}
+
+.customizer a:hover {
+  padding-bottom: 5px;
+  border-bottom: 1px dotted;
+}
+
+.customizer-color button {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: rgb(150, 150, 150);
+  outline: none;
+}
+
+.customizer-color button:hover {
+  color: white;
+  cursor: none;
+}
+
+.biggerText {
+  font-size: 26px;
+}
+
+.smallerText {
+  font-size: 16px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .customizer-content{
+    width: 90%;
+  }
+  .customizer-colors{
+
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .customizer-content{
+    width: 550px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .customizer{
+    display: none;
+  }
 }
