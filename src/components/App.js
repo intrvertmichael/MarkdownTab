@@ -8,7 +8,40 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      text: `
+      text:'',
+      currentColor:'',
+      currentCircle:''
+    };
+  }
+
+  onClick = (stateProp, payload) => {
+    if(stateProp==='text'){
+      this.setState({text: payload});
+    }
+    else if(stateProp==='currentColor'){
+      this.setState({currentColor: payload});
+    }
+    else if(stateProp==='currentCircle'){
+      this.setState({currentCircle: payload});
+    }
+  }
+
+  componentDidMount() {
+    const browser = window.chrome || window.browser;
+
+    // chrome.storage.sync.get(null, result => console.log(result));
+    browser.storage.sync.get(null, result => {
+      console.log(result);
+      const mdText = result.key;
+      const textSize = result.textSize;
+      const heightSize = result.heightSize;
+
+      const bgColor = result.bgCustom;
+      const textColor = result.textCustom;
+      const titleColor = result.titleCustom;
+      const highlightColor = result.highCustom;
+
+      const defaultText = `
 Markdown Tab
 ===============
 ### A *Markdown* page that comes up __everytime__ we open a new tab
@@ -67,31 +100,10 @@ resize in browser.
 With a reference later in the document defining the URL location:
 
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-      `
-    };
-  }
-
-  onClick = (text) => {
-    this.setState({text: text});
-  }
-
-  componentDidMount() {
-    const browser = window.chrome || window.browser;
-
-    // chrome.storage.sync.get(null, result => console.log(result));
-    browser.storage.sync.get(null, result => {
-      console.log(result);
-      const mdText = result.key;
-      const textSize = result.textSize;
-      const heightSize = result.heightSize;
-
-      const bgColor = result.bgCustom;
-      const textColor = result.textCustom;
-      const titleColor = result.titleCustom;
-      const highlightColor = result.highCustom;
+      `;
 
       // setting the chrome saved to current
-      if(textSize !== undefined){ this.setState({text:mdText}) };
+      if(mdText !== undefined){ this.setState({text:mdText}) } else { this.setState({text:defaultText}) }
       if(bgColor !== undefined){ document.documentElement.style.setProperty('--background-color', bgColor) }
       if(textColor !== undefined){ document.documentElement.style.setProperty('--text-color', textColor) }
       if(titleColor !== undefined){ document.documentElement.style.setProperty('--title-color', titleColor) }
@@ -109,8 +121,8 @@ With a reference later in the document defining the URL location:
       <div className='tooSmall'> Please make the window bigger. </div>
       <button className='display-btn' onClick={growShrink}>X</button>
 
-      <Customizer />
-      <Md setText={this.onClick} text={this.state.text}/>
+      <Customizer setProp={this.onClick} currentColor={this.state.currentColor} currentCircle={this.state.currentCircle}/>
+      <Md setProp={this.onClick} text={this.state.text}/>
       <Display text={this.state.text} />
     </div>
   )}

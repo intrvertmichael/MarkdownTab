@@ -1,40 +1,41 @@
 import React from 'react';
-import { CompactPicker } from 'react-color'
+import { ChromePicker } from 'react-color'
 import '../style/Customizer.css';
 
-const customizer = () =>{
-  let currentClass = '';
-
+const customizer = props =>{
   const circleClicked = link => {
-    currentClass = link;
-
-    const divPosition = window.scrollY + document.querySelector(`.${currentClass}`).getBoundingClientRect().left - 260;
+    props.setProp('currentCircle', link);
+    const divPosition = window.scrollY + document.querySelector(`.${link}`).getBoundingClientRect().left - 230;
     document.querySelector('.color-picker-container').style.left = `${divPosition}px`;
-
-    document.querySelector('.color-picker-container').style.display = 'block';
+    document.querySelector('.color-picker-background').style.display = 'block';
   }
 
-  const colorPicked = (color) =>{
-    document.documentElement.style.setProperty(`--${currentClass}-color`, color.hex);
+  const colorChange = (color) =>{
+    console.log('color changed');
+    console.log(color.hex);
+    console.log(props.currentCircle);
+
+    props.setProp('currentColor', color.hex);
+    document.documentElement.style.setProperty(`--${props.currentCircle}-color`, color.hex);
 
     // chrome
     const browser = window.chrome || window.browser;
-    if(currentClass === 'background'){
+    if(props.currentCircle === 'background'){
       browser.storage.sync.set({ bgCustom:color.hex }, ()=>{})
     }
-    else if(currentClass === 'text'){
+    else if(props.currentCircle === 'text'){
       browser.storage.sync.set({ textCustom:color.hex }, ()=>{})
     }
-    else if(currentClass === 'title'){
+    else if(props.currentCircle === 'title'){
       browser.storage.sync.set({ titleCustom:color.hex }, ()=>{})
     }
-    else if(currentClass === 'highlights'){
+    else if(props.currentCircle === 'highlights'){
       browser.storage.sync.set({ highCustom:color.hex }, ()=>{})
     }
   }
 
   const closeColorPicker = () =>{
-    document.querySelector('.color-picker-container').style.display = 'none';
+    document.querySelector('.color-picker-background').style.display = 'none';
   }
 
   const resetColors = () =>{
@@ -59,11 +60,6 @@ const customizer = () =>{
     browser.storage.sync.get(null, result => console.log(result));
   }
 
-  const pickerColors = [
-    '#040404', '#ffffff', '#ddff00', '#e8ccc6', '#bdac9a', '#d6cd97', '#dbe8d3', '#a0bd9a', '#d1e0f1', '#9aabbd', '#a99abd', '#bd9a9f',
-    '#000000', '#f7f7f7', '#ff1500', '#140100', '#150b00', '#3f3a19', '#9ea599', '#041500', '#a0aab1', '#000a15', '#090015', '#150003'
-  ];
-
   const changeFontSize = operation =>{
     let sizeString = getComputedStyle(document.documentElement).getPropertyValue('--text-size');
     let size = sizeString.replace('px','');
@@ -87,19 +83,34 @@ const customizer = () =>{
     browser.storage.sync.set({ textSize:`${size}px` }, ()=>{})
     browser.storage.sync.set({ heightSize:`${size*2}px` }, ()=>{})
   }
-
   return (
     <div className='customizer'>
-      <div className='color-picker-container'><CompactPicker disableAlpha={true} onChange={color=>colorPicked(color)} onChangeComplete={closeColorPicker} colors={pickerColors}/> </div>
+      <div className='color-picker-background' onClick={closeColorPicker}>
+        <div className='color-picker-container'>
+          <ChromePicker disableAlpha={true} color={props.currentColor} onChange={color=>colorChange(color)} />
+        </div>
+      </div>
 
       <div className='customizer-content'>
         <div className='customizer-colors'>
           <div className='customizer-color-label'><a href='https://www.markdownguide.org/basic-syntax/' target="_blank" rel="noopener noreferrer">Learn Markdown</a> </div>
 
-          <div className='customizer-color'>Background <div className='color background' onClick={()=>circleClicked('background')}></div> </div>
-          <div className='customizer-color'>Text <div className='color text' onClick={()=>circleClicked('text')}></div> </div>
-          <div className='customizer-color'>Title <div className='color title' onClick={()=>circleClicked('title')}></div> </div>
-          <div className='customizer-color'>Highlights <div className='color highlights' onClick={()=>circleClicked('highlights')}></div> </div>
+          <div className='customizer-color'>
+            Background
+            <div className='color background' onClick={()=>circleClicked('background')}></div>
+          </div>
+          <div className='customizer-color'>
+            Text
+            <div className='color text' onClick={()=>circleClicked('text')}></div>
+          </div>
+          <div className='customizer-color'>
+            Title
+            <div className='color title' onClick={()=>circleClicked('title')}></div>
+          </div>
+          <div className='customizer-color'>
+            Highlights
+            <div className='color highlights' onClick={()=>circleClicked('highlights')}></div>
+          </div>
 
           <div className='customizer-color'>
             <button className='smallerText' onClick={()=>changeFontSize('smaller')}>A</button>
