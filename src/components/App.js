@@ -72,21 +72,45 @@ With a reference later in the document defining the URL location:
   }
 
   onClick = (text) => {
-     this.setState({
-       text: text
-     });
+    this.setState({text: text});
+  }
+
+  componentDidMount() {
+    const browser = window.chrome || window.browser;
+
+    // chrome.storage.sync.get(null, result => console.log(result));
+    browser.storage.sync.get(null, result => {
+      console.log(result);
+      const mdText = result.key;
+      const textSize = result.textSize;
+      const heightSize = result.heightSize;
+
+      const bgColor = result.bgCustom;
+      const textColor = result.textCustom;
+      const titleColor = result.titleCustom;
+      const highlightColor = result.highCustom;
+
+      // setting the chrome saved to current
+      if(textSize !== undefined){ this.setState({text:mdText}) };
+      if(bgColor !== undefined){ document.documentElement.style.setProperty('--background-color', bgColor) }
+      if(textColor !== undefined){ document.documentElement.style.setProperty('--text-color', textColor) }
+      if(titleColor !== undefined){ document.documentElement.style.setProperty('--title-color', titleColor) }
+      if(highlightColor !== undefined){ document.documentElement.style.setProperty('--highlights-color', highlightColor) }
+
+      if(textSize !== undefined){ document.documentElement.style.setProperty('--text-size', textSize) }
+      if(heightSize !== undefined){ document.documentElement.style.setProperty('--height-size', heightSize) }
+
+    });
   }
 
   render(){
-
-
     return (
     <div className="container">
       <div className='tooSmall'> Please make the window bigger. </div>
       <button className='display-btn' onClick={growShrink}>X</button>
 
       <Customizer />
-      <Md setText={this.onClick} default={this.state.text}/>
+      <Md setText={this.onClick} text={this.state.text}/>
       <Display text={this.state.text} />
     </div>
   )}

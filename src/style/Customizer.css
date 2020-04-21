@@ -82,7 +82,6 @@
 .background {background: var(--background-color)}
 .text {background: var(--text-color)}
 .title {background: var(--title-color)}
-.quotes {background: var(--quotes-color)}
 .highlights {background: var(--highlights-color)}
 
 .reset {
