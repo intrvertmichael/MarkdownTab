@@ -4,37 +4,39 @@ import '../style/Customizer.css';
 
 const customizer = props =>{
   const circleClicked = link => {
+
     props.setProp('currentCircle', link);
+
+    let currentColor = getComputedStyle(document.documentElement).getPropertyValue(`--${link}-color`);
+    props.setProp('currentColor', currentColor);
+
     const divPosition = window.scrollY + document.querySelector(`.${link}`).getBoundingClientRect().left - 230;
     document.querySelector('.color-picker-container').style.left = `${divPosition}px`;
     document.querySelector('.color-picker-background').style.display = 'block';
   }
 
   const colorChange = (color) =>{
-    console.log('color changed');
-    console.log(color.hex);
-    console.log(props.currentCircle);
-
     props.setProp('currentColor', color.hex);
     document.documentElement.style.setProperty(`--${props.currentCircle}-color`, color.hex);
 
-    // chrome
-    const browser = window.chrome || window.browser;
-    if(props.currentCircle === 'background'){
-      browser.storage.sync.set({ bgCustom:color.hex }, ()=>{})
-    }
-    else if(props.currentCircle === 'text'){
-      browser.storage.sync.set({ textCustom:color.hex }, ()=>{})
-    }
-    else if(props.currentCircle === 'title'){
-      browser.storage.sync.set({ titleCustom:color.hex }, ()=>{})
-    }
-    else if(props.currentCircle === 'highlights'){
-      browser.storage.sync.set({ highCustom:color.hex }, ()=>{})
-    }
   }
 
   const closeColorPicker = () =>{
+    // chrome
+    const browser = window.chrome || window.browser;
+    if(props.currentCircle === 'background'){
+      browser.storage.sync.set({ bgCustom:props.currentColor}, ()=>{})
+    }
+    else if(props.currentCircle === 'text'){
+      browser.storage.sync.set({ textCustom:props.currentColor}, ()=>{})
+    }
+    else if(props.currentCircle === 'title'){
+      browser.storage.sync.set({ titleCustom:props.currentColor}, ()=>{})
+    }
+    else if(props.currentCircle === 'highlights'){
+      browser.storage.sync.set({ highCustom:props.currentColor}, ()=>{})
+    }
+
     document.querySelector('.color-picker-background').style.display = 'none';
   }
 
