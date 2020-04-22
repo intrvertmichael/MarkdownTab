@@ -68,6 +68,18 @@ resize in browser.
 2. second thing
 3. third thing
 
+### Task lists
+
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley
+
 
 ### Blockquotes
 
@@ -104,6 +116,8 @@ With a reference later in the document defining the URL location:
 
       // setting the chrome saved to current
       if(mdText !== undefined){ this.setState({text:mdText}) } else { this.setState({text:defaultText}) }
+      if(mdText === ""){ this.setState({text:defaultText}) }
+
       if(bgColor !== undefined){ document.documentElement.style.setProperty('--background-color', bgColor) }
       if(textColor !== undefined){ document.documentElement.style.setProperty('--text-color', textColor) }
       if(titleColor !== undefined){ document.documentElement.style.setProperty('--title-color', titleColor) }

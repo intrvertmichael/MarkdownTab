@@ -7,7 +7,7 @@ import '../style/Display.css';
 import '../style/DisplayPieces.css';
 
 const display = (props) =>{
-  const mdIt = new MarkdownIt({breaks:true, linkify:true, typographer:true});
+  const mdIt = new MarkdownIt({html: true, breaks:true, linkify:true, typographer:true});
   mdIt.use(MarkdownItEmoji);
   mdIt.use(MarkdownItTasks);
   const result = mdIt.render(props.text);

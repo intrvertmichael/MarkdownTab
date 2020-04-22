@@ -10,7 +10,7 @@ const customizer = props =>{
     let currentColor = getComputedStyle(document.documentElement).getPropertyValue(`--${link}-color`);
     props.setProp('currentColor', currentColor);
 
-    const divPosition = window.scrollY + document.querySelector(`.${link}`).getBoundingClientRect().left - 230;
+    const divPosition = window.scrollY + document.querySelector(`.${link}`).getBoundingClientRect().left - 240;
     document.querySelector('.color-picker-container').style.left = `${divPosition}px`;
     document.querySelector('.color-picker-background').style.display = 'block';
   }

@@ -103,7 +103,7 @@
 
 .color-picker-container{
   position: absolute;
-  top: 5px;
+  top: 0px;
   z-index: 100;
 }
 
